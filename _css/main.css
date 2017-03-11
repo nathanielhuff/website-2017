@@ -7,6 +7,7 @@ html, body {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 15px;
     -webkit-font-smoothing: antialiased;
+    moz-osx-font-smoothing: grayscale;
 }
 body {
     overflow: hidden;
@@ -48,21 +49,32 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    filter: brightness(0.75);
     z-index: 0;
     -webkit-backface-visibility: hidden;
-    animation: bgAnimation 18s linear infinite 0s; 
+    animation: bgAnimation 36s linear infinite 0s; 
 }
 .bg .bg-img:nth-child(1) { 
-    background-image: url(../_img/bg/1.jpg) 
+    background-image: url(../_img/bg/rausch-creek.jpg);
 }
 .bg .bg-img:nth-child(2) { 
-    background-image: url(../_img/bg/2.jpg);
+    background-image: url(../_img/bg/fire-ring.jpg);
     animation-delay: 6s; 
 }
 .bg .bg-img:nth-child(3) { 
-    background-image: url(../_img/bg/3.jpg);
+    background-image: url(../_img/bg/marcy-summit.jpg);
     animation-delay: 12s; 
+}
+.bg .bg-img:nth-child(4) { 
+    background-image: url(../_img/bg/tiadaghton-state-forest.jpg);
+    animation-delay: 18s; 
+}
+.bg .bg-img:nth-child(5) { 
+    background-image: url(../_img/bg/barren-mountain.jpg);
+    animation-delay: 24s; 
+}
+.bg .bg-img:nth-child(6) { 
+    background-image: url(../_img/bg/us-2-nh.jpg);
+    animation-delay: 30s; 
 }
 /*  Timing Algorithm:
  *  n = number of images
@@ -70,22 +82,34 @@ a {
  *
  *  where k0 = first keyframe
  *  k0 = 0%
- *  k1 = d / (n * d)
- *  k2 = k3 / 2
- *  k3 = k2 + k3
+ *  k1 = k2 / 2
+ *  k2 = d / (n * d)
+ *  k3 = k2 + k1
  *  k4 = 100%
  */
+@webkit-keyframes bgAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1; }
+    25% { opacity: 0; }
+    100% { opacity: 0; }
+}
 @keyframes bgAnimation { 
-    0% { opacity: 0;
-    animation-timing-function: ease-in; }
-    17% { opacity: 1;
-         animation-timing-function: ease-out; }
-    33% { opacity: 1 }
-    50% { opacity: 0 }
-    100% { opacity: 0 }
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1; }
+    25% { opacity: 0; }
+    100% { opacity: 0; }
 }
 #table {
+    -webkit-transition:  all cubic-bezier(0.68, -0.55, 0.27, 1.55) 2s;
     transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 2s;
+}
+#table.inactive {
+    top: -100%;
+}
+.no-js #table.inactive {
+    top: 100%;
 }
 .center-xy {
     position: absolute;
@@ -130,6 +154,17 @@ a {
     width: 100%;
     animation: logo-animation 12s infinite;
 }
+@-webkit-keyframes logo-animation {
+    0% {
+        -webkit-filter: grayscale(1);
+    }
+    50% {
+        -webkit-filter: grayscale(0);
+    }
+    100% {
+        -webkit-filter: grayscale(1);
+    }
+}
 @keyframes logo-animation {
     0% {
         filter: grayscale(1);
@@ -144,6 +179,7 @@ a {
 .link,
 .social-link,
 .link > span {
+    -webkit-transition:  all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
     transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
 }
 .social-links {
@@ -261,6 +297,7 @@ a {
 }
 .arrow,
 .arrow-path {
+    -webkit-transition:  all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
     transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
 }
 .arrow {
@@ -291,6 +328,7 @@ a {
     font-size: 15px;
     text-align: center;
     color: white;
+    -webkit-transition:  all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
     transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
 }
 .caption {
