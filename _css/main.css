@@ -9,7 +9,8 @@ html, body {
     -webkit-font-smoothing: antialiased;
     moz-osx-font-smoothing: grayscale;
 }
-body {
+html, body {
+    position: relative;
     overflow: hidden;
 }
 * { box-sizing: border-box; }
@@ -152,29 +153,6 @@ a {
 #logo {
     display: block;
     width: 100%;
-    animation: logo-animation 12s infinite;
-}
-@-webkit-keyframes logo-animation {
-    0% {
-        -webkit-filter: grayscale(1);
-    }
-    50% {
-        -webkit-filter: grayscale(0);
-    }
-    100% {
-        -webkit-filter: grayscale(1);
-    }
-}
-@keyframes logo-animation {
-    0% {
-        filter: grayscale(1);
-    }
-    50% {
-        filter: grayscale(0);
-    }
-    100% {
-        filter: grayscale(1);
-    }
 }
 .link,
 .social-link,
