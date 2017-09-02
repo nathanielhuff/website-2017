@@ -52,30 +52,30 @@ a {
     opacity: 0;
     z-index: 0;
     -webkit-backface-visibility: hidden;
-    animation: bgAnimation 36s linear infinite 0s; 
+    animation: bgAnimation 36s linear infinite 0s;
 }
-.bg .bg-img:nth-child(1) { 
+.bg .bg-img:nth-child(1) {
     background-image: url(../_img/bg/rausch-creek.jpg);
 }
-.bg .bg-img:nth-child(2) { 
+.bg .bg-img:nth-child(2) {
     background-image: url(../_img/bg/fire-ring.jpg);
-    animation-delay: 6s; 
+    animation-delay: 6s;
 }
-.bg .bg-img:nth-child(3) { 
+.bg .bg-img:nth-child(3) {
     background-image: url(../_img/bg/marcy-summit.jpg);
-    animation-delay: 12s; 
+    animation-delay: 12s;
 }
-.bg .bg-img:nth-child(4) { 
+.bg .bg-img:nth-child(4) {
     background-image: url(../_img/bg/tiadaghton-state-forest.jpg);
-    animation-delay: 18s; 
+    animation-delay: 18s;
 }
-.bg .bg-img:nth-child(5) { 
+.bg .bg-img:nth-child(5) {
     background-image: url(../_img/bg/barren-mountain.jpg);
-    animation-delay: 24s; 
+    animation-delay: 24s;
 }
-.bg .bg-img:nth-child(6) { 
+.bg .bg-img:nth-child(6) {
     background-image: url(../_img/bg/us-2-nh.jpg);
-    animation-delay: 30s; 
+    animation-delay: 30s;
 }
 /*  Timing Algorithm:
  *  n = number of images
@@ -88,14 +88,14 @@ a {
  *  k3 = k2 + k1
  *  k4 = 100%
  */
-@webkit-keyframes bgAnimation { 
+@webkit-keyframes bgAnimation {
     0% { opacity: 0; animation-timing-function: ease-in; }
     8% { opacity: 1; animation-timing-function: ease-out; }
     17% { opacity: 1; }
     25% { opacity: 0; }
     100% { opacity: 0; }
 }
-@keyframes bgAnimation { 
+@keyframes bgAnimation {
     0% { opacity: 0; animation-timing-function: ease-in; }
     8% { opacity: 1; animation-timing-function: ease-out; }
     17% { opacity: 1; }
@@ -315,6 +315,91 @@ a {
     padding: 1%;
     background-color: rgba(0,0,0,0.5);
 }
+
+#down-arrow-mobile {
+    display: none;
+    position: absolute;
+    left: calc(50% - 15px);
+    top: 100%;
+    width: 30px;
+    height: 20px;
+    border: none;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+#down-arrow-mobile:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: white transparent transparent transparent;
+    -webkit-transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
+    transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
+}
+
+#down-arrow-mobile:focus,
+#down-arrow-mobile:hover {
+    height: 25px;
+    border-top: 5px solid darkgreen;
+    background-color: green;
+}
+
+#down-arrow-mobile:focus:before,
+#down-arrow-mobile:hover:before {
+    border-color: #ffde00 transparent transparent transparent;
+}
+
+#up-arrow-mobile {
+    display: none;
+    left: calc(50% - 15px);
+    bottom: -50%;
+    width: 30px;
+    height: 20px;
+    border: none;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+#up-arrow-mobile:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent white transparent;
+    -webkit-transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
+    transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.4s;
+}
+
+#up-arrow-mobile:focus,
+#up-arrow-mobile:hover {
+    height: 25px;
+    border-bottom: 5px solid darkgreen;
+    background-color: green;
+}
+
+#up-arrow-mobile:focus:before,
+#up-arrow-mobile:hover:before {
+    border-color: transparent transparent #ffde00 transparent;
+}
+
+@media (max-width: 599px) {
+    #down-arrow,
+    #up-arrow {
+        display: none;
+    }
+    #down-arrow-mobile,
+    #up-arrow-mobile {
+        display: block;
+    }
+}
+
 @media (max-height: 579px) {
     #logo {
         width: 180px;
